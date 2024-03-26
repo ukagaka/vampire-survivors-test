@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://gwn4ghueraoo" path="res://scenes/ui/experience_bar.tscn" id="2_we8pe"]
 [ext_resource type="PackedScene" uid="uid://c3w00eve250kh" path="res://scenes/manager/experience_manager.tscn" id="4_ix68v"]
 [ext_resource type="PackedScene" uid="uid://bxq8yyi3xck81" path="res://scenes/manager/enemy_manager.tscn" id="4_pb8bb"]
-[ext_resource type="PackedScene" uid="uid://bxxcw1hbdxjod" path="res://scenes/manager/upgrade_manager.tscn" id="6_108ec"]
+[ext_resource type="PackedScene" uid="uid://c1pd528bdgrqn" path="res://scenes/manager/upgrade_manager.tscn" id="6_108ec"]
 
 [node name="Main" type="Node"]
 

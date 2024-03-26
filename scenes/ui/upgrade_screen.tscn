@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjch22llagn0y"]
 
-[ext_resource type="PackedScene" uid="uid://lanqc076limk" path="res://scenes/ui/ability_upgrade_card.tscn" id="1_aup73"]
-
+[ext_resource type="PackedScene" uid="uid://cx27ph4yff2mn" path="res://scenes/ui/ability_upgrade_card.tscn" id="1_aup73"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_screen.gd" id="1_rkchy"]
 
 [node name="UpgradeScreen" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_rkchy")
 upgrade_card_scene = ExtResource("1_aup73")
 
