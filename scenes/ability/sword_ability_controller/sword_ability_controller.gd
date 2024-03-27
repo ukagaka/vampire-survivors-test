@@ -33,6 +33,8 @@ func on_timer_timeout():
 	)
 		
 	var sword_instance = sword_ability.instantiate() as SwordAbility
+	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
+	foreground_layer.add_child(sword_instance)
 	player.get_parent().add_child(sword_instance)
 	sword_instance.hitbox_component.damage = damage
 	
@@ -46,8 +48,10 @@ func on_ability_upgrade_add(upgrade: AbilityUpgrade, current_upgrades:Dictionary
 	if upgrade.id != "sword_rate":
 		return
 	 
-	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.5
-	$Timer.wait_time = base_wait_time * (1 - percent_reduction)
+	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
+	var up_wait_time = base_wait_time * (1 - percent_reduction)
+	if up_wait_time < 0 :
+		up_wait_time = 0
+	$Timer.wait_time = up_wait_time
 	$Timer.start() #修改速率后需要重新启动定时器
 	
-	print($Timer.wait_time)
