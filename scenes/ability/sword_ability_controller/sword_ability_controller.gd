@@ -49,9 +49,6 @@ func on_ability_upgrade_add(upgrade: AbilityUpgrade, current_upgrades:Dictionary
 		return
 	 
 	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	var up_wait_time = base_wait_time * (1 - percent_reduction)
-	if up_wait_time < 0 :
-		up_wait_time = 0
-	$Timer.wait_time = up_wait_time
+	$Timer.wait_time = max(base_wait_time * (1 - percent_reduction), 0)
 	$Timer.start() #修改速率后需要重新启动定时器
 	

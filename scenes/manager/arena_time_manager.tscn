@@ -8,6 +8,6 @@ script = ExtResource("1_kxohu")
 end_screen_scene = ExtResource("2_e6370")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 300.0
 one_shot = true
 autostart = true
