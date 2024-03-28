@@ -1,6 +1,6 @@
 extends Node
 
-#生成半径
+#生成半径，要超过屏幕大小，这样才显的怪是从窗口外面生成的，而不是中途生成
 const SPAWN_PADIUS = 370
 
 @export var basic_enemy_scene: PackedScene
@@ -25,6 +25,9 @@ func get_spawn_position():
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	
 	#找出墙体位置，如果找到墙体，碰撞说明该位置不能移动，需要旋转 90度再次看看是否能够生成
+	#注意，因为竞技场大小与生成的怪物（SPAWN_PADIUS 生成半径超过了竞技场），所以基本都是有碰撞的，
+	#需要把竞技场调大，只要保证 SPAWN_PADIUS 半径大小，角色站中间，怪是从四面八方出现说明竞技场大小合适
+	
 	for i in 4:
 	
 		#随机位置：用户位置+随机位置+距离
