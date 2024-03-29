@@ -8,5 +8,5 @@ script = ExtResource("1_m2dqm")
 axe_ability_scene = ExtResource("2_ghur4")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.5
 autostart = true

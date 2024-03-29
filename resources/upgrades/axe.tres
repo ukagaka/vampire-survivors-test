@@ -7,5 +7,6 @@
 script = ExtResource("2_qgfa2")
 ability_controller_scene = ExtResource("1_h4i0g")
 id = "axe"
+max_quantity = 1
 name = "Axe"
 description = "增加一把旋转的斧头"
