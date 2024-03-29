@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
+@onready var visuals = $Visuals
 
 
 func _process(delta):
@@ -11,5 +11,4 @@ func _process(delta):
 	
 	var move_sign = sign(velocity.x)
 	if move_sign != 0:
-		visuals.scale = Vector2(-move_sign, 1)
-	
+		visuals.scale = Vector2(move_sign, 1)
