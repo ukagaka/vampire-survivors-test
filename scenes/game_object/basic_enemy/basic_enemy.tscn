@@ -91,6 +91,7 @@ autoplay = "walk"
 [node name="HealthComponent" parent="." instance=ExtResource("2_7sbmy")]
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_gjpxd")]
+drop_percent = 0.35
 health_component = NodePath("../HealthComponent")
 vial_scene = ExtResource("4_7sicr")
 
