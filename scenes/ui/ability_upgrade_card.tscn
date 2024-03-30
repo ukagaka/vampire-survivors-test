@@ -4,8 +4,8 @@
 
 [node name="AbilityUpgradeCard" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 150)
-offset_right = 78.0
-offset_bottom = 206.0
+offset_right = 128.0
+offset_bottom = 150.0
 script = ExtResource("1_m1bla")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
