@@ -21,7 +21,7 @@ collision_mask = 9
 script = ExtResource("1_ud1as")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_sebfy")]
-max_health = 5.0
+max_health = 30.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fwyku")]
 drop_percent = 0.35
