@@ -114,7 +114,7 @@ _data = {
 "walk": SubResource("Animation_xrvel")
 }
 
-[sub_resource type="Shader" id="Shader_pvwh7"]
+[sub_resource type="Shader" id="Shader_mjodm"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -135,7 +135,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knirh"]
 resource_local_to_scene = true
-shader = SubResource("Shader_pvwh7")
+shader = SubResource("Shader_mjodm")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_upe4u"]
@@ -159,7 +159,7 @@ autoplay = "walk"
 max_health = 30.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fwyku")]
-drop_percent = 0.35
+drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 vial_scene = ExtResource("4_xgjg5")
 

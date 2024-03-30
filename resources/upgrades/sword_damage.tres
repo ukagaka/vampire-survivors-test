@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c2tb6hvlk2pao"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_42pwr"]
+
+[resource]
+script = ExtResource("1_42pwr")
+id = "sword_damage"
+max_quantity = 0
+name = "Sword Damage"
+description = "增加剑的伤害 15%"
