@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://76w5bkm4ku6w"]
+[gd_scene load_steps=5 format=3 uid="uid://76w5bkm4ku6w"]
 
 [ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_2d0vy"]
+[ext_resource type="PackedScene" uid="uid://bhbrwymqqhe46" path="res://scenes/ui/vignette.tscn" id="2_hredn"]
 [ext_resource type="TileSet" uid="uid://dup12vjluwr02" path="res://resources/tileset.tres" id="2_ywvpt"]
 [ext_resource type="PackedScene" uid="uid://doqjo4tf1ww8i" path="res://scenes/ui/sound_button.tscn" id="3_83w8c"]
 
@@ -40,6 +41,7 @@ theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Options"
 horizontal_alignment = 1
@@ -53,6 +55,7 @@ theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "SFX Volume"
 
 [node name="SfxSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SfxContainer"]
@@ -67,6 +70,7 @@ theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicContainer"]
@@ -74,6 +78,7 @@ unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
+value = 0.5
 
 [node name="WindowContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -81,6 +86,7 @@ theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Window Volume"
 
 [node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowContainer" instance=ExtResource("3_83w8c")]
@@ -95,3 +101,6 @@ custom_minimum_size = Vector2(50, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "后退"
+
+[node name="Vignette" parent="." instance=ExtResource("2_hredn")]
+layer = 2
