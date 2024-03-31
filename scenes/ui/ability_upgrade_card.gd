@@ -21,7 +21,6 @@ func play_discard():
 	$AnimationPlayer.play("discard")
 
 func set_ability_upgrade(upgrade: AbilityUpgrade):
-	print(upgrade.name)
 	name_label.text = upgrade.name
 	description_label.text = upgrade.description
 	
