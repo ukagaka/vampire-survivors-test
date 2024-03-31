@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgpefm0pjilge"]
+[gd_scene load_steps=13 format=3 uid="uid://dgpefm0pjilge"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_rrt4h"]
 [ext_resource type="Texture2D" uid="uid://ba32sbnlpjwxu" path="res://scenes/game_object/player/tile_0096.png" id="2_2483c"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_fxlbj"]
 [ext_resource type="PackedScene" uid="uid://dvktb5jnn304j" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_g0u61"]
+[ext_resource type="PackedScene" uid="uid://dty1ca7yonuko" path="res://scenes/component/velocity_component.tscn" id="2_jxr5j"]
 
 [sub_resource type="Animation" id="Animation_tvalc"]
 length = 0.001
@@ -118,6 +119,10 @@ libraries = {
 "": SubResource("AnimationLibrary_fxv4l")
 }
 autoplay = "wail"
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_jxr5j")]
+max_speed = 90
+acceleration = 25.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_fxlbj")
