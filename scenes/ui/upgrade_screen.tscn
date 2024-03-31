@@ -1,12 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjch22llagn0y"]
+[gd_scene load_steps=7 format=3 uid="uid://cjch22llagn0y"]
 
 [ext_resource type="PackedScene" uid="uid://cx27ph4yff2mn" path="res://scenes/ui/ability_upgrade_card.tscn" id="1_aup73"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_screen.gd" id="1_rkchy"]
+
+[sub_resource type="Animation" id="Animation_2h6om"]
+resource_name = "in"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3r2ui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j0fjt"]
+resource_name = "out"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bl8ky"]
+_data = {
+"RESET": SubResource("Animation_3r2ui"),
+"in": SubResource("Animation_2h6om"),
+"out": SubResource("Animation_j0fjt")
+}
 
 [node name="UpgradeScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_rkchy")
 upgrade_card_scene = ExtResource("1_aup73")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bl8ky")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.607843, 0.298039, 0.639216, 0.352941)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
