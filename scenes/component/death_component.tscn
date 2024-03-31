@@ -97,5 +97,4 @@ interpolate = false
 
 [node name="HitAudioPlayerComponent" parent="." instance=ExtResource("3_d6wus")]
 autoplay = true
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("4_vd50m"), ExtResource("5_4moyx"), ExtResource("6_nwmok"), ExtResource("7_vcyhn"), ExtResource("8_qy8bg")])
