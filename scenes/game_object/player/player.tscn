@@ -1,9 +1,48 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgpefm0pjilge"]
+[gd_scene load_steps=12 format=3 uid="uid://dgpefm0pjilge"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_rrt4h"]
 [ext_resource type="Texture2D" uid="uid://ba32sbnlpjwxu" path="res://scenes/game_object/player/tile_0096.png" id="2_2483c"]
 [ext_resource type="Script" path="res://scenes/component/health_component.gd" id="2_fxlbj"]
 [ext_resource type="PackedScene" uid="uid://dvktb5jnn304j" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_g0u61"]
+
+[sub_resource type="Animation" id="Animation_tvalc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_abwoj"]
 resource_name = "wail"
@@ -46,53 +85,11 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.5, 0.7), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_tvalc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fxv4l"]
 _data = {
 "RESET": SubResource("Animation_tvalc"),
 "wail": SubResource("Animation_abwoj")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb6iu"]
-bg_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k8rq"]
 bg_color = Color(0.262745, 0.882353, 0.701961, 1)
@@ -140,7 +137,6 @@ offset_top = -23.0
 offset_right = 16.0
 offset_bottom = -17.0
 pivot_offset = Vector2(16, 2.08165e-12)
-theme_override_styles/background = SubResource("StyleBoxFlat_tb6iu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8k8rq")
 max_value = 1.0
 value = 0.5
