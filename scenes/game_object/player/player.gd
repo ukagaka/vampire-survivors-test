@@ -63,6 +63,7 @@ func on_damage_interval_timer_timeout():
 	check_deal_damage()
 
 func on_health_changed():
+	GameEvents.emit_player_damaged()
 	update_health_display()
 	
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -70,5 +71,5 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		var ability = ability_upgrade as Ability
 		abilities.add_child(ability.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"]* 1)
+		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"]* 0.1)
 
