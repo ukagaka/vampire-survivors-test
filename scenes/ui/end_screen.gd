@@ -1,14 +1,23 @@
 extends CanvasLayer
 
+@onready var panel_container = %PanelContainer
 
 func _ready():
+	#增加结束时弹窗动画
+	panel_container.pivot_offset = panel_container.size / 2
+	panel_container.scale = Vector2.ZERO
+	var tween = create_tween()
+	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)
+	tween.tween_property(panel_container, "scale", Vector2.ONE, 0.3)\
+	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	
 	get_tree().paused = true
-	$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/RestartButton.pressed.connect(on_restart_button_pressed)
-	$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton.pressed.connect(on_quit_button_pressed)
+	$%RestartButton.pressed.connect(on_restart_button_pressed)
+	$%QuitButton.pressed.connect(on_quit_button_pressed)
 
 func set_defeat():
-	$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/TitleLabel.text = "Defeat"
-	$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DescriptionLabel.text = "You lost!"
+	$%TitleLabel.text = "Defeat"
+	$%DescriptionLabel.text = "You lost!"
 
 func on_restart_button_pressed():
 	get_tree().paused = false
