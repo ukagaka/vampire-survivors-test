@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://doqjo4tf1ww8i" path="res://scenes/ui/sound_button.tscn" id="3_83w8c"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_2d0vy")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -103,4 +104,4 @@ size_flags_horizontal = 0
 text = "后退"
 
 [node name="Vignette" parent="." instance=ExtResource("2_hredn")]
-layer = 2
+layer = 3
