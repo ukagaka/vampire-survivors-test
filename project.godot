@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
 MusicPlayer="*res://scenes/autoload/music_player.tscn"
+ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 
 [display]
 

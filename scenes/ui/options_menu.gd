@@ -45,4 +45,6 @@ func on_audio_slider_changed(value:float, bus_name: String):
 	set_bus_volume_percent(bus_name, value)
 	
 func on_back_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
 	back_pressed.emit()
