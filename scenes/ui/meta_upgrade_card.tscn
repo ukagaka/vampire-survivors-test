@@ -216,6 +216,6 @@ texture = ExtResource("13_kikgi")
 [node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Purchase"
+text = "Max"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
