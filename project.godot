@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Survival Roguelike"
+config/name="2DSurvivorsCourse"
 run/main_scene="res://scenes/ui/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="2DSurvivorsCourse"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
