@@ -112,7 +112,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[node name="MetaUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
+[node name="MetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
 custom_minimum_size = Vector2(170, 2.08165e-12)
 offset_right = 128.0
 offset_bottom = 150.0
@@ -168,7 +168,8 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = -1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_type_variation = &"BlueOutlineLabel"
@@ -180,6 +181,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_o7ugy")
 max_value = 1.0
