@@ -31,6 +31,15 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "后退"
 
 [node name="Vignette" parent="." instance=ExtResource("4_ota8j")]
 layer = 3

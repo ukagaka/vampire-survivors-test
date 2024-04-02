@@ -78,7 +78,7 @@ _data = {
 "walk": SubResource("Animation_e752b")
 }
 
-[sub_resource type="Shader" id="Shader_fo045"]
+[sub_resource type="Shader" id="Shader_x8nqk"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -99,7 +99,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c4hl7"]
 resource_local_to_scene = true
-shader = SubResource("Shader_fo045")
+shader = SubResource("Shader_x8nqk")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wiwho"]
@@ -139,7 +139,6 @@ sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HitAudioPlayerComponent" parent="." instance=ExtResource("10_gkndv")]
 autoplay = true
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("10_x7swb"), ExtResource("12_4kdqe"), ExtResource("13_mgc14"), ExtResource("14_aocgo"), ExtResource("15_y6q73")])
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_ewmn8")]

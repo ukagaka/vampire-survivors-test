@@ -131,12 +131,12 @@ text = "You won!"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qi0sx")]
+[node name="ContinueButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qi0sx")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Restart"
+text = "继续"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_qi0sx")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "退出配置"
