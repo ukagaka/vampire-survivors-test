@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_dpsn3")
 id = "experience_gain"
-max_quantity = 1
+max_quantity = 3
 experience_cost = 100
-title = "Increase Experience"
+title = "Health Regen"
 description = "增加经验 10%."
