@@ -120,7 +120,7 @@ _data = {
 "walk": SubResource("Animation_xrvel")
 }
 
-[sub_resource type="Shader" id="Shader_qx4fg"]
+[sub_resource type="Shader" id="Shader_v7grc"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -141,7 +141,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knirh"]
 resource_local_to_scene = true
-shader = SubResource("Shader_qx4fg")
+shader = SubResource("Shader_v7grc")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_upe4u"]
@@ -162,7 +162,7 @@ libraries = {
 autoplay = "walk"
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_sebfy")]
-max_health = 30.0
+max_health = 20.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_fwyku")]
 drop_percent = 1.0
@@ -201,5 +201,4 @@ shape = SubResource("CircleShape2D_jfhnw")
 
 [node name="HitAudioPlayerComponent" parent="." instance=ExtResource("8_htxpw")]
 autoplay = true
-max_distance = 300.0
 streams = Array[AudioStream]([ExtResource("9_25vj1"), ExtResource("10_g35yg"), ExtResource("11_rh4eh"), ExtResource("12_bdu2l"), ExtResource("13_7mkpn")])

@@ -1,0 +1,165 @@
+[gd_scene load_steps=23 format=3 uid="uid://b32nl2wvcs6t7"]
+
+[ext_resource type="Script" path="res://scenes/game_object/bat_enemy/bat_enemy.gd" id="1_udee0"]
+[ext_resource type="PackedScene" uid="uid://du15g7434jdj2" path="res://scenes/component/health_component.tscn" id="2_x5ol0"]
+[ext_resource type="PackedScene" uid="uid://cxy0il0rty2p4" path="res://scenes/component/vial_drop_component.tscn" id="3_nmpnl"]
+[ext_resource type="PackedScene" uid="uid://dlal0shmu1ttv" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="4_p1olk"]
+[ext_resource type="PackedScene" uid="uid://dty1ca7yonuko" path="res://scenes/component/velocity_component.tscn" id="5_j8rw6"]
+[ext_resource type="PackedScene" uid="uid://bkkk37l5sh8qv" path="res://scenes/component/hit_flash_component.tscn" id="6_qfbh4"]
+[ext_resource type="PackedScene" uid="uid://chlm31humlsrd" path="res://scenes/component/death_component.tscn" id="7_xv7xi"]
+[ext_resource type="PackedScene" uid="uid://bu8817mqcqyri" path="res://scenes/component/hurtbox_component.tscn" id="8_5d3hg"]
+[ext_resource type="Texture2D" uid="uid://bdlfuvtgy6mup" path="res://scenes/game_object/bat_enemy/bat.png" id="8_m5jbx"]
+[ext_resource type="PackedScene" uid="uid://dm3t1mthb4np4" path="res://scenes/component/random_stream_player_2d_componeny.tscn" id="10_6rgr0"]
+[ext_resource type="AudioStream" uid="uid://4lkf4np5u1ki" path="res://assets/audio/footstep_carpet_000.ogg" id="11_ubok6"]
+[ext_resource type="AudioStream" uid="uid://bvnbq5pit1nl3" path="res://assets/audio/footstep_carpet_001.ogg" id="12_yt4se"]
+[ext_resource type="AudioStream" uid="uid://dsy81jnsxbakd" path="res://assets/audio/footstep_carpet_002.ogg" id="13_2y8r3"]
+[ext_resource type="AudioStream" uid="uid://cv27syhr3od6r" path="res://assets/audio/footstep_carpet_003.ogg" id="14_1uour"]
+[ext_resource type="AudioStream" uid="uid://bmotexoeionc3" path="res://assets/audio/footstep_carpet_004.ogg" id="15_ehaed"]
+
+[sub_resource type="Animation" id="Animation_cps87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xrvel"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -7), Vector2(2.08165e-12, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [3.48787e-16, 0.174533, -0.174533, -0.120528]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwgp5"]
+_data = {
+"RESET": SubResource("Animation_cps87"),
+"walk": SubResource("Animation_xrvel")
+}
+
+[sub_resource type="Shader" id="Shader_3oc3e"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float lerp_percent: hint_range(0.0, 1.0);
+
+void fragment() {
+	//原理：类似照片后期修图一样，提取通道内的颜色，进行颜色变更
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
+	COLOR = final_color;
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_knirh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_3oc3e")
+shader_parameter/lerp_percent = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vy32"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwwe1"]
+radius = 4.0
+
+[node name="BatEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_udee0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mwgp5")
+}
+autoplay = "walk"
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_x5ol0")]
+max_health = 30.0
+
+[node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_nmpnl")]
+drop_percent = 0.4
+health_component = NodePath("../HealthComponent")
+vial_scene = ExtResource("4_p1olk")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("5_j8rw6")]
+max_speed = 110
+acceleration = 0.75
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_qfbh4")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_knirh")
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_xv7xi")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+
+[node name="HitRandomAudioPlayerComponent" parent="." instance=ExtResource("10_6rgr0")]
+autoplay = true
+streams = Array[AudioStream]([ExtResource("11_ubok6"), ExtResource("12_yt4se"), ExtResource("13_2y8r3"), ExtResource("14_1uour"), ExtResource("15_ehaed")])
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(2.08165e-12, -7)
+texture = ExtResource("8_m5jbx")
+offset = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_5d3hg")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_2vy32")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_kwwe1")
