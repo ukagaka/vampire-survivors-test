@@ -9,4 +9,4 @@ ability_controller_scene = ExtResource("1_d07lp")
 id = "anvil"
 max_quantity = 1
 name = "Anvil"
-description = "增加一把随机铁砧能力"
+description = "增加铁砧能力"

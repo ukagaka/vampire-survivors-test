@@ -11,12 +11,14 @@ var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_axe_damage = preload("res://resources/upgrades/axe_damage.tres")
 var upgrade_sword_rate = preload("res://resources/upgrades/sword_rate.tres")
 var upgrade_sword_damage = preload("res://resources/upgrades/sword_damage.tres")
+var upgrade_anvil_count = preload("res://resources/upgrades/anvil_count.tres")
 var player_speed = preload("res://resources/upgrades/player_speed.tres")
+
 
 
 func _ready():
 	upgrade_pool.add_item(upgrade_axe, 10)
-	upgrade_pool.add_item(upgrade_anvil, 10)
+	upgrade_pool.add_item(upgrade_anvil, 100000)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
 	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(player_speed, 5)
@@ -47,6 +49,8 @@ func update_upgrade_pool(chosen_upgrade:AbilityUpgrade):
 	if chosen_upgrade.id == upgrade_axe.id:
 		#如果升级的 id 是斧头的 id，则把斧头伤害的技能增加到技能列表内
 		upgrade_pool.add_item(upgrade_axe_damage, 10)
+	elif chosen_upgrade.id == upgrade_anvil.id:
+		upgrade_pool.add_item(upgrade_anvil_count, 10000)
 
 
 func pick_upgrades():
