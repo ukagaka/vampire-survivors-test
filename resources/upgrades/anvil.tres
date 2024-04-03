@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dbpu3m5mivogi"]
+
+[ext_resource type="PackedScene" uid="uid://bbvekutsrbwbr" path="res://scenes/ability/anvil_ability_controller/anvil_ability_controller.tscn" id="1_d07lp"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_l1hqp"]
+
+[resource]
+script = ExtResource("2_l1hqp")
+ability_controller_scene = ExtResource("1_d07lp")
+id = "anvil"
+max_quantity = 1
+name = "Anvil"
+description = "增加一把铁砧能力"

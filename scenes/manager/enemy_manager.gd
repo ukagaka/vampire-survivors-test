@@ -16,7 +16,6 @@ var number_to_spawn = 1
 
 func _ready():
 	enemy_table.add_item(basic_enemy_scene, 10)
-	enemy_table.add_item(bat_enemy_scene, 10000)
 
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
